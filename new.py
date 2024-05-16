@@ -195,7 +195,7 @@ def main():
                             elif euler_angles[1] < - HEAD_TILT_ANGLE_THRESHOLD:
                                 tilt_direction = "Right"
                                 if tilt_start_time is None:
-                                    tilt_start_time = time.time()
+                                    time()
                                 else:
                                     tilt_duration = time.time() - tilt_start_time
                                     if tilt_duration >= HEAD_TILT_DURATION_THRESHOLD and not look_forward_alarm:
@@ -278,7 +278,7 @@ def main():
 
                         # Reset alarm trigger when condition is no longer met
                         if not (ear < EYE_AR_THRESH or mar > MOUTH_AR_THRESH):
-                            alarm_triggered = False
+                            alarm_triggered = Falseilt_start_time = time.ti
 
                         cv2.putText(frame, "EAR: {:.2f}".format(ear), (30, 450),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
@@ -288,6 +288,7 @@ def main():
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
                         cv2.putText(frame, f"Yawn count: {COUNTER_MOUTH:.2f}", (10, 90),
                                                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                         FRAME_WINDOW.image(frame)
                         cv2.waitKey(1)
                 else:
